@@ -30,7 +30,7 @@ public class MergeSort {
             right[j] = array[midpoint + j];
         }
 
-        int[] result = new int[array.length];
+        int[] result;
 
         left = mergeSort(left);
         right = mergeSort(right);
