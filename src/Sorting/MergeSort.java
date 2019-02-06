@@ -15,51 +15,51 @@ public class MergeSort {
         }
         int midpoint = array.length / 2;
         int[] left = new int[midpoint];
-        int[] rigth;
+        int[] right;
 
         if (array.length % 2 == 0) {
-            rigth = new int[midpoint];
+            right = new int[midpoint];
         } else {
-            rigth = new int[midpoint + 1];
+            right = new int[midpoint + 1];
         }
 
         for (int i = 0; i < midpoint; i++) {
             left[i] = array[i];
         }
-        for (int j = 0; j < rigth.length; j++) {
-            rigth[j] = array[midpoint + j];
+        for (int j = 0; j < right.length; j++) {
+            right[j] = array[midpoint + j];
         }
 
         int[] result = new int[array.length];
 
         left = mergeSort(left);
-        rigth = mergeSort(rigth);
+        right = mergeSort(right);
 
-        result = merge(left, rigth);
+        result = merge(left, right);
         return result;
     }
 
-    private int[] merge(int[] left, int[] rigth) {
+    private int[] merge(int[] left, int[] right) {
 
-        int[] result = new int[left.length + rigth.length];
+        int[] result = new int[left.length + right.length];
 
         int leftPointer, rightPointer, resultPointer;
         leftPointer = rightPointer = resultPointer = 0;
 
-        while (leftPointer < left.length || rightPointer < rigth.length) {
+        while (leftPointer < left.length || rightPointer < right.length) {
 
-            if (leftPointer < left.length && rightPointer < rigth.length) {
+            if (leftPointer < left.length && rightPointer < right.length) {
 
-                if (left[leftPointer] < rigth[rightPointer]) {
+                if (left[leftPointer] < right[rightPointer]) {
                     result[resultPointer++] = left[leftPointer++];
                 } else {
-                    result[resultPointer++] = rigth[rightPointer++];
+                    result[resultPointer++] = right[rightPointer++];
                 }
 
             } else if (leftPointer < left.length) {
                 result[resultPointer++] = left[leftPointer++];
-            } else if (rightPointer < rigth.length) {
-                result[resultPointer++] = rigth[rightPointer++];
+            } else if (rightPointer < right.length) {
+                result[resultPointer++] = right[rightPointer++];
             }
 
         }
