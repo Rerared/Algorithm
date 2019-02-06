@@ -58,7 +58,7 @@ public class MergeSort {
 
             } else if (leftPointer < left.length) {
                 result[resultPointer++] = left[leftPointer++];
-            } else if (rightPointer < right.length) {
+            } else {
                 result[resultPointer++] = right[rightPointer++];
             }
 
