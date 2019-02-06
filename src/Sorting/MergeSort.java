@@ -43,23 +43,23 @@ public class MergeSort {
 
         int[] result = new int[left.length + rigth.length];
 
-        int leftPointer, rigthPointer, resultPointer;
-        leftPointer = rigthPointer = resultPointer = 0;
+        int leftPointer, rightPointer, resultPointer;
+        leftPointer = rightPointer = resultPointer = 0;
 
-        while (leftPointer < left.length || rigthPointer < rigth.length) {
+        while (leftPointer < left.length || rightPointer < rigth.length) {
 
-            if (leftPointer < left.length && rigthPointer < rigth.length) {
+            if (leftPointer < left.length && rightPointer < rigth.length) {
 
-                if (left[leftPointer] < rigth[rigthPointer]) {
+                if (left[leftPointer] < rigth[rightPointer]) {
                     result[resultPointer++] = left[leftPointer++];
                 } else {
-                    result[resultPointer++] = rigth[rigthPointer++];
+                    result[resultPointer++] = rigth[rightPointer++];
                 }
 
             } else if (leftPointer < left.length) {
                 result[resultPointer++] = left[leftPointer++];
-            } else if (rigthPointer < rigth.length) {
-                result[resultPointer++] = rigth[rigthPointer++];
+            } else if (rightPointer < rigth.length) {
+                result[resultPointer++] = rigth[rightPointer++];
             }
 
         }
